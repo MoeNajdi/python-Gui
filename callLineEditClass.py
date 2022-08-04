@@ -14,8 +14,9 @@ class MyForm(QDialog):
         self.show()
         
     def dispMessage(self):
-        studentObj = Student(self.ui.lineEdit.text())
-        self.ui.label_2.setText("Hello " + studentObj.printName())
+        studentObj = Student(self.ui.lineEdit.text(), self.ui.lineEditCode.text())
+
+        self.ui.label_2.setText("Hello " + studentObj.printName() + " " + studentObj.printCode())
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
