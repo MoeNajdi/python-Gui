@@ -1,6 +1,7 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QDialog
 from LineEditClass import *
+from marksClass import Marks
 from studentClass import *
 
 class MyForm(QDialog):
@@ -14,9 +15,11 @@ class MyForm(QDialog):
         self.show()
         
     def dispMessage(self):
-        studentObj = Student(self.ui.lineEdit.text(), self.ui.lineEditCode.text())
+        marksObj = Marks(self.ui.lineEdit.text(), self.ui.lineEditCode.text()\
+            , self.ui.lineEditHistory.text(), self.ui.lineEditGeography.text())
 
-        self.ui.label_2.setText("Hello " + studentObj.printName() + " " + studentObj.printCode())
+        self.ui.label_2.setText("Hello " + marksObj.printName() + " " + marksObj.printCode()\
+            + " History Marks: " + marksObj.getHistoryMarks() + " Geo Marks " +  marksObj.getGeographyMarks())
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
